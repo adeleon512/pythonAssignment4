@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>Author {{ author.name }}</title>
+</head>
+<body>
+<h1>Author: {{ author.author_name }}</h1>
+Articles:
+
+<p>Quantity of articles:</p>
+{#{%-for article in articles %}#}
+<p>{{ pap_count.num_paps }}</p>
+{#{%-endfor %}#}
+{%-for article in articles %}
+        <style>
+        ul#menu li {display:inline;}
+        </style>
+        <ul id="menu">
+        {% import 'widget.html' as widget %}
+        <li>Cite as: </li>
+        <li>{{widget.citation(article, author, issue, pub)}}</li>
+        </ul>
+{%-endfor %}
+</body>
+</html>

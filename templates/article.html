@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{ paper.title }}</title>
+</head>
+<body>
+<h1><em>{{ paper.title }}</em></h1>
+<p>Published in {{issue.date.year }}.</p>
+        <style>
+        ul#menu li {display:inline;}
+        </style>
+        <ul id="menu">
+    {%-set num_aut = paper.authors | length %}
+        {%-set counter = 0 %}
+            {%-for author in paper.authors %}
+                {%-set counter = counter + 1 %}
+                <li> {{ author}}</li>
+                {%-if (num_aut > 2) and counter < num_aut %}
+                {%-endif %}
+                {%-if counter == num_aut - 1 %} and
+                {%-endif %}
+            {%-endfor %}
+{#    {%- set num_aut = paper.authors | length %}#}
+{#      {%- set counter = 0 %}#}
+{#        {%- for author in paper.authors %}#}
+{#            {%-set counter = counter + 1 %}#}
+{#             <li><a href="/authors/{{ author.author_name }}">{{ author.author_name }}</a></li>#}
+{#            {%-if(num_aut > 2) and counter < num_aut %},#}
+{#            {%-endif %}#}
+{#            {%-if counter == num_aut - 1 %} and#}
+{#            {%-endif %}#}
+{#        {%-endfor  %}#}
+        <li>{{ issue.date.iss_year }}</li>
+        <li><a href="/articles/{{ paper.id }}">{{ paper.title }}</a></li>
+        <li> In </li>
+        {%- if issue.iss_title %}
+        <em><li>{{ issue.iss_title }}</li></em>
+        {%-else %}
+        <em><li>{{ pub.pub_title }}</li></em>
+        <em><li> Vol.</li> </em>
+        <em><li>{{ issue.iss_vol }}</li></em>
+            {%-if issue.iss_num %}
+            <em><li> issue number: </li></em>
+            <em><li>{{ issue.iss_num }}</li></em>
+            {%-endif %}
+        {%-endif %}
+        <li><br></li>
+        <li><br></li>
+        </ul>
+<h2>Authors</h2>
+<ul>
+    {% for author in paper.authors %}
+    <li>{{ author }}</li>
+    {% endfor %}
+</ul>
+<h2>Abstract</h2>
+<p>{{ paper.abstract }}</p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>Issue {{ issue.title }}</title>
+</head>
+<body>
+<h1><a href="/publications/{{ pub_id }}"><em>{{ pub.title }}</em></a></h1>
+Issue
+{%- if issue.volume %}
+<strong>{{ issue.volume }}</strong>
+{%- endif %}
+{%- if issue.number %}
+({{ issue.number }})
+{%- endif %}
+{%- if issue.title %}
+: <em>{{ issue.title }}</em>
+{%- endif %}
+, published on {{ issue.date }}
+
+<h2>Articles</h2>
+<ul>
+    {%- for article in articles %}
+        <style>
+        ul#menu li {display:inline;}
+        </style>
+        <ul id="menu">
+        {% import 'widget.html' as widget %}
+        <li>Cite as: </li>
+        <li>{{widget.citation(article, author, issue, pub)}}</li>
+        </ul>
+    {%- endfor %}
+</ul>
+
+</body>
+</html>

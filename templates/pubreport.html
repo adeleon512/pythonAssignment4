@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Publications for {{ author }}</title>
+</head>
+<body>
+<h1>Publication Counts by Journal for {{ author }}</h1>
+<p>Author ID: {{ author_id }}</p>
+<p>Total articles: {{ total }}</p>
+<table>
+    <thead>
+    <tr>
+        <th>Journal / Conference</th>
+        <th># Articles</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for pub in pubs %}
+    <tr>
+        <td>{{ pub.title }}</td>
+        <td>{{ pub.article_count }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

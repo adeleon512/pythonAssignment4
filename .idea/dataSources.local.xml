@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - acd21@postgres.cs.txstate.edu" uuid="b1c208ec-f91d-48c7-bb05-bb12d284722e">
+      <database-info product="PostgreSQL" version="9.2.13" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>acd21</user-name>
+      <resolve-scope>acd21:pg_catalog,public</resolve-scope>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <proxy-host>zeus.cs.txstate.edu</proxy-host>
+        <proxy-port>22</proxy-port>
+        <secret-storage>master_key</secret-storage>
+        <user>acd21</user>
+        <use-password>true</use-password>
+      </ssh-properties>
+    </data-source>
+  </component>
+</project>

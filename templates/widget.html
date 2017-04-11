@@ -1,0 +1,28 @@
+{% macro citation(article, author, issue, pub) %}
+    {%- set num_aut = article.authors | length %}
+      {%- set counter = 0 %}
+        {%- for author in article.authors %}
+            {%-set counter = counter + 1 %}
+             <li><a href="/authors/{{ author.aut_id }}">{{ author.author_name }}</a></li>
+            {%-if(num_aut > 2) and counter < num_aut %},
+            {%-endif %}
+            {%-if counter == num_aut - 1 %} and
+            {%-endif %}
+        {%-endfor  %}
+        <li>{{ issue.date.year }}</li>
+        <li><a href="/articles/{{ article.id }}">{{ article.title }}</a></li>
+        <li> In </li>
+        {%- if issue.title %}
+        <em><li>{{ issue.title }}</li></em>
+        {%-else %}
+        <em><li>{{ pub.title }}</li></em>
+        <em><li> Vol.</li> </em>
+        <em><li>{{ issue.volume }}</li></em>
+            {%-if issue.number %}
+            <em><li> issue number: </li></em>
+            <em><li>{{ issue.number }}</li></em>
+            {%-endif %}
+        {%-endif %}
+        <li><br></li>
+        <li><br></li>
+{% endmacro %}

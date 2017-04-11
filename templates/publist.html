@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+    <title>List of Publications</title>
+</head>
+<body>
+<h1>List of Publications</h1>
+<ul><!-- unordered list -->
+    {% for pub in publications %}
+        <li><a href="/publications/{{ pub.id }}">{{ pub.title }}</a>
+            ({{ pub.issue_count }} issues)</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

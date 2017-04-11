@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Publication {{ pub.title }}</title>
+</head>
+<body>
+<h1><em>{{ pub.title }}</em></h1>
+<p>This publication has {{ pub.issue_count }} issues.</p>
+<h2>Issues</h2>
+<ul>
+    {% for issue in issues %}
+        <li>{{ issue.year }}:
+            <a href="/publications/{{ pub.id }}/issues/{{ issue.id }}">
+            {% if issue.title %}
+            {{ issue.title }}
+            {% endif %}
+            {% if issue.volume %}
+                <strong>{{ issue.volume }}</strong>({{ issue.number }})
+            {% elif issue.number %}
+                {{ issue.number }}
+            {% endif %}
+        </a>
+        ({{ issue.date }})
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authors by publication count: </title>
+</head>
+<body>
+<h1>Authors by Publication Count</h1>
+{%-for leader in leaders %}
+    <li><a href="/authors/{{ leader.author_id }}">{{ leader.author_name }}</a></li>
+{%-endfor %}
+
+</body>
+</html>
